@@ -1,0 +1,33 @@
+#DivHACKS
+const patientRecords = {
+  patient_1: {
+    age: 65,
+    sex: "Female",
+    weight_kg: 70,
+    current_medications: ["aspirin", "metformin"],
+    allergies: ["penicillin"],
+    health_conditions: ["diabetes", "hypertension"]
+  }
+};
+
+// List of known drug-drug interactions
+const drugInteractions = {
+  aspirin: ["ibuprofen"], // Aspirin interacts with ibuprofen
+  metformin: ["contrast dye"] // Metformin interacts with contrast dye used in imaging
+};
+
+// Dosage guidelines (for demonstration purposes)
+const dosageGuidelines = {
+  aspirin: {
+    adult: { min_dose_mg: 50, max_dose_mg: 1000 },
+    senior: { min_dose_mg: 50, max_dose_mg: 300 } // Lower dose for seniors
+  }
+};
+
+function checkInteractions(patient, newMedication) {
+  // Check for potential drug-drug interactions
+  const currentMeds = patientRecords[patient].current_medications;
+  for (let med of currentMeds) {
+    if (drugInteractions[med] && drugInteractions[med].includes(newMedication)) {
+      return Warning: ${newMedication} interacts with current medication ${med}.;
+    }
